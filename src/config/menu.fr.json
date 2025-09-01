@@ -16,7 +16,7 @@
       "url": "/#projects"
     },
     {
-      "enable": true,
+      "enable": false,
       "name": "Tarifs",
       "url": "/#pricing"
     }

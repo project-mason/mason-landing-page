@@ -17,8 +17,7 @@ const page = await getEntryCTM("homepage", "-index", Astro.currentLocale);
 
 <Base {...page?.data} headerPosition="fixed" hasHeaderDarkBackground={true}>
   <BannerAgencyStartup />
-  <Clients />
+  <!-- <Clients /> -->
   <ServicesSection />
   <PortfolioSection />
-  <PricingSection />
 </Base>
