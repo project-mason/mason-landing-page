@@ -1,13 +1,13 @@
 ---
 enable: true # Control the visibility of this section across all pages where it is used
-title: "Have Any Project on Your Mind?"
+title: "Interested in using Mason in your workflow?"
 description: "Great! We're excited to hear from you and let's start something"
 
 # image: "/images/about-us/about-one.jpg"
 # imagePosition: "left" # Choose between "left" or "right"
 
 map:
-  enable: true
+  enable: false
   position: "right" # Choose between "left" or "right"
   title: "Map of New Work City"
   url: https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed # Embed map iframe URL generated from https://www.maps.ie/create-google-map/
@@ -172,8 +172,8 @@ form:
           - label: "General Inquiry"
             value: "General Inquiry"
             selected: false
-          - label: "Join Wailist"
-            value: "Join Wailist"
+          - label: "Join Waitlist"
+            value: "Join Waitlist"
             selected: false
           - label: "Request Quote"
             value: "Request Quote"
@@ -205,7 +205,7 @@ form:
       name: "Message" # This is crucial. Its indicate under which name you want to receive this field data
       required: true
       halfWidth: false
-    - label: "Google Search" # only valid for type="checkbox" & type === "radio"
+    - label: "Google" # only valid for type="checkbox" & type === "radio"
       checked: false # only valid for type="checkbox" & type === "radio"
       name: "User Source" # This is crucial. Its indicate under which name you want to receive this field data
       required: true
@@ -214,7 +214,15 @@ form:
       type: "radio"
       halfWidth: true
       defaultValue: ""
-    - label: "Social Media" # only valid for type="checkbox" & type === "radio"
+    - label: "Facebook" # only valid for type="checkbox" & type === "radio"
+      name: "User Source" # This is crucial. Its indicate under which name you want to receive this field data
+      required: true
+      groupLabel: "" # Radio Inputs Label
+      group: "source" # when you add group then it will omit space between the same group radio input
+      type: "radio"
+      halfWidth: true
+      defaultValue: ""
+    - label: "Other" # only valid for type="checkbox" & type === "radio"
       name: "User Source" # This is crucial. Its indicate under which name you want to receive this field data
       required: true
       groupLabel: "" # Radio Inputs Label
@@ -238,19 +246,19 @@ form:
     #   type: "radio"
     #   halfWidth: true
     #   defaultValue: ""
-    - label: "I agree to the terms and conditions and [privacy policy](/)." # only valid for type="checkbox" & type === "radio"
-      id: "privacy-policy"
-      name: "Agreed Privacy" # This is crucial. Its indicate under which name you want to receive this field data
-      value: "Agreed" # Value that will be submit (applicable for type="checkbox" & type === "radio")
-      checked: false # only valid for type="checkbox" & type === "radio"
-      required: true
-      type: "checkbox"
-      halfWidth: false
-      defaultValue: ""
+    # - label: "I agree to the terms and conditions and [privacy policy](/)." # only valid for type="checkbox" & type === "radio"
+    #   id: "privacy-policy"
+    #   name: "Agreed Privacy" # This is crucial. Its indicate under which name you want to receive this field data
+    #   value: "Agreed" # Value that will be submit (applicable for type="checkbox" & type === "radio")
+    #   checked: false # only valid for type="checkbox" & type === "radio"
+    #   required: true
+    #   type: "checkbox"
+    #   halfWidth: false
+    #   defaultValue: ""
     - note: success # info | warning | success | deprecated | hint
       parentClass: "hidden text-sm message success"
       content: We have received your message! We'll get back to you as soon as possible.
     - note: deprecated # info | warning | success | deprecated | hint
       parentClass: "hidden text-sm message error"
-      content: Something went wrong! please use this mail - [mason-astro-theme@gmail.com](mailto:mason-astro-theme@gmail.com) to submit a ticket!
+      content: Something went wrong! please use this mail - [projectmasonco@gmail.com](mailto:projectmasonco@gmail.com) to submit your inquiry!
 ---
