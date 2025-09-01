@@ -280,3 +280,33 @@ export const netlifySubmit = async (form: HTMLFormElement, action: string) => {
     throw error;
   }
 };
+
+/**
+ * Submits form data for Google.
+ *
+ * @param form - The form element.
+ */
+export const googleSubmit = async (
+  timeout: number,
+  form: HTMLFormElement,
+) => {
+  const data = new URLSearchParams(new FormData(form) as any).toString();
+  try {
+    await fetchWithTimeout(
+      import.meta.env.PUBLIC_GOOGLE_EMAIL_URL,
+      data,
+      new AbortController(),
+      timeout,
+    );
+    setMessage("default", true, false, form);
+    formReset(form);
+  } catch (error) {
+    setMessage(
+      error +
+        "! Please use this mail - [projectmasonco@gmail.com](mailto:projectmasonco@gmail.com) to submit your inquiry!",
+      true,
+      false,
+      form,
+    );
+  }
+};

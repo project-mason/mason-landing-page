@@ -279,6 +279,7 @@ const noteStyles = {
     formspreeSubmit,
     netlifySubmit,
     formSubmit,
+    googleSubmit,
     isFormFilled,
     setMessage,
     validateSelectTag,
@@ -361,13 +362,16 @@ const noteStyles = {
                 form,
               );
               break;
+            case "google":
+              await googleSubmit(5000, form);
+              break;
             default:
               throw new Error("Unknown form provider.");
           }
         } catch (error) {
           setMessage(
             error +
-              "! Please use this mail - [mason-astro-theme@gmail.com](mailto:mason-astro-theme@gmail.com) to submit a ticket!",
+              "! Please use this mail - [projectmasonco@gmail.com](mailto:projectmasonco@gmail.com) to submit your inquiry!",
             false,
             false,
             form,
