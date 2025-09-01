@@ -1,6 +1,6 @@
 ---
 enable: true
-title: "What We Can Do for Our Clients"
+title: "What Mason Can Do for Your Business"
 # sectionDirection: "horizontal" # horizontal | vertical
 
 options:

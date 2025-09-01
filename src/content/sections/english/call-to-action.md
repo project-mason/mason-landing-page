@@ -3,7 +3,7 @@
 enable: true # Control the visibility of this section across all pages where it is used
 title: "Let’s Work Together"
 description: |
-  We are digital agency that helps businesses develop immersive and engaging user experiences
+  Mason is a business management platform designed for skilled trades. Get features like online booking, automated invoicing, job tracking, and customer management—everything you need to grow your business and save hours every week.
 
 button:
   enable: true

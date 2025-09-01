@@ -27,6 +27,7 @@
 [seo]
   author = "projectmason"
   keywords = [
+    # Primary Service Niches
     "hvac",
     "plumbing",
     "electrical",
@@ -42,6 +43,8 @@
     "tree service",
     "pest control",
     "roofing",
+
+    # Core Software Functions
     "scheduling software",
     "dispatch software",
     "job management software",
@@ -54,6 +57,8 @@
     "work order software",
     "service software",
     "business management software",
+
+    # Keywords with Intent
     "software for trades",
     "app for contractors",
     "field service app",
@@ -118,9 +123,9 @@
 
   # Global Contact Information
   [settings.contactInfo]
-    address = "27 Division St, New York, <br /> NY 10002, USA"
-    email   = "[mason.agency@mail.com](mailto:mason.agency@mail.com)"
-    phone   = "[+1 800 123 654 987](tel:+1800123654987)"
+    address = "Atlanta, <br /> GA, USA"
+    email   = "[projectmasonco@gmail.com](mailto:projectmasonco@gmail.com)"
+    phone   = "[+1 678 948 5002](tel:+16789485002)"
 
   # Header Offcanvas Configuration
   # Update social links in `src/config/social.json`
