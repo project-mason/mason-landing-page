@@ -59,7 +59,7 @@ map:
 # Check config.toml file for form action related settings
 # this is also used in the footer of the personal portfolio homepage
 form:
-  emailSubject: "New form submission from mason website" # Customized email subject (applicable when anyone submit form, form submission may receive by email depend on provider)
+  emailSubject: "New form submission from Mason landing page" # Customized email subject (applicable when anyone submit form, form submission may receive by email depend on provider)
   submitButton:
     # Refer to the `sharedButton` schema in `src/sections.schema.ts` for all available configuration options (e.g., enable, label, url, hoverEffect, variant, icon, tag, rel, class, target, etc.)
     enable: true
@@ -87,6 +87,79 @@ form:
       halfWidth: true
       defaultValue: ""
     - label: ""
+      placeholder: "Business Type *"
+      name: "Business Type" # This is crucial. Its indicate under which name you want to receive this field data
+      required: false
+      halfWidth: true
+      dropdown:
+        type: "search" # select | search - default is select
+        search: # if type is search then it will work
+          placeholder: "Type to Search"
+        items:
+          - label: "Plumbing Services"
+            value: "Plumbing Services"
+            selected: false
+          - label: "Electrical Services"
+            value: "Electrical Services"
+            selected: false
+          - label: "HVAC Services"
+            value: "HVAC Services"
+            selected: false
+          - label: "Carpentry Services"
+            value: "Carpentry Services"
+            selected: false
+          - label: "Landscaping Services"
+            value: "Landscaping Services"
+            selected: false
+          - label: "Painting Services"
+            value: "Painting Services"
+            selected: false
+          - label: "Roofing Services"
+            value: "Roofing Services"
+            selected: false
+          - label: "Masonry Services"
+            value: "Masonry Services"
+            selected: false
+          - label: "Handyman Services"
+            value: "Handyman Services"
+            selected: false
+          - label: "Appliance Repair"
+            value: "Appliance Repair"
+            selected: false
+          - label: "Locksmith Services"
+            value: "Locksmith Services"
+            selected: false
+          - label: "Cleaning Services"
+            value: "Cleaning Services"
+            selected: false
+          - label: "Pest Control Services"
+            value: "Pest Control Services"
+            selected: false
+          - label: "Tree Services"
+            value: "Tree Services"
+            selected: false
+          - label: "Flooring Services"
+            value: "Flooring Services"
+            selected: false
+          - label: "Tiling Services"
+            value: "Tiling Services"
+            selected: false
+          - label: "Concrete Services"
+            value: "Concrete Services"
+            selected: false
+          - label: "Window and Door Installation"
+            value: "Window and Door Installation"
+            selected: false
+          - label: "Garage Door Services"
+            value: "Garage Door Services"
+            selected: false
+          - label: "Fencing Services"
+            value: "Fencing Services"
+            selected: false
+          - label: "Other"
+            value: "Other"
+            selected: false
+    - label: ""
       placeholder: "Subject *"
       name: "Subject" # This is crucial. Its indicate under which name you want to receive this field data
       required: false
@@ -99,36 +172,30 @@ form:
           - label: "General Inquiry"
             value: "General Inquiry"
             selected: false
-          - label: "Partnership Opportunity"
-            value: "Partnership Opportunity"
+          - label: "Join Wailist"
+            value: "Join Wailist"
             selected: false
-          - label: "Investment Opportunity"
-            value: "Investment Opportunity"
+          - label: "Request Quote"
+            value: "Request Quote"
             selected: false
     - label: ""
-      placeholder: "Subject With Search *"
-      name: "Subject With Search" # This is crucial. Its indicate under which name you want to receive this field data
+      placeholder: "Company Size *"
+      name: "Company Size" # This is crucial. Its indicate under which name you want to receive this field data
       required: false
       halfWidth: true
       dropdown:
-        type: "search" # select | search - default is select
+        type: "" # select | search - default is select
         search: # if type is search then it will work
-          placeholder: "Subject With Search"
+          placeholder: ""
         items:
-          - label: "General Inquiry"
-            value: "General Inquiry"
+          - label: "1 - 10"
+            value: "1 - 10"
             selected: false
-          - label: "Partnership Opportunity"
-            value: "Partnership Opportunity"
+          - label: "11 - 30"
+            value: "11 - 30"
             selected: false
-          - label: "Career Opportunity"
-            value: "Career Opportunity"
-            selected: false
-          - label: "Investment Opportunity"
-            value: "Investment Opportunity"
-            selected: false
-          - label: "Media Inquiry"
-            value: "Media Inquiry"
+          - label: "31+"
+            value: "31+"
             selected: false
     - label: ""
       tag: "textarea"
