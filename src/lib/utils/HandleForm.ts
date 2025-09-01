@@ -245,7 +245,7 @@ export const formspreeSubmit = async (
   } catch (error) {
     setMessage(
       error +
-        "! Please use this mail - [folex-astro-theme@gmail.com](mailto:folex-astro-theme@gmail.com) to submit a ticket!",
+        "! Please use this mail - [mason-astro-theme@gmail.com](mailto:mason-astro-theme@gmail.com) to submit a ticket!",
       true,
       false,
       form,

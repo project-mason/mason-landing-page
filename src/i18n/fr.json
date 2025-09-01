@@ -15,7 +15,7 @@
     "buttonLabel": "Commencer"
   },
   "footer": {
-    "copyright": "Droits d’auteur © {{ year }} Folex / Réalisé avec [Getastrothemes](https://getastrothemes.com/)",
+    "copyright": "Droits d’auteur © {{ year }} Mason / Réalisé avec [Getastrothemes](https://getastrothemes.com/)",
     "_comment": "Nous vous serions reconnaissants de conserver le copyright du thème. Merci de soutenir Getastrothemes !"
   }
 }

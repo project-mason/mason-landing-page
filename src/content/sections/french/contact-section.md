@@ -29,13 +29,13 @@ map:
 #   - title: "Adresse e-mail"
 #     icon: "/images/icons/svg/message-filled.svg"
 #     description: |
-#       folex.agency@mail.com
-#       folex.agency@support.com
+#       mason.agency@mail.com
+#       mason.agency@support.com
 #     button:
 #       # Refer to the `sharedButton` schema in `src/sections.schema.ts` for all available configuration options (e.g., enable, label, url, hoverEffect, variant, icon, tag, rel, class, target, etc.)
 #       enable: true
 #       label: "Envoyer un message"
-#       url: "mailto:folex.agency@m
+#       url: "mailto:mason.agency@m
 #       # hoverEffect: "" # Optional: text-flip | creative-fill | magnetic | magnetic-text-flip
 #       # variant: "" # Optional: fill | outline | text | circle
 #       # rel: "" # Optional
@@ -59,7 +59,7 @@ map:
 # Vérifiez le fichier config.toml pour les paramètres liés au formulaire
 # ce formulaire est aussi utilisé dans le pied de page du portfolio personnel
 form:
-  emailSubject: "Nouvelle soumission de formulaire depuis le site folex" # Sujet personnalisé de l’email (valable à chaque soumission)
+  emailSubject: "Nouvelle soumission de formulaire depuis le site mason" # Sujet personnalisé de l’email (valable à chaque soumission)
   submitButton:
     label: "ENVOYER LE MESSAGE"
   # Cette note apparaîtra à la fin du formulaire
@@ -178,5 +178,5 @@ form:
       content: "Nous avons bien reçu votre message ! Nous vous répondrons dès que possible."
     - note: deprecated
       parentClass: "hidden text-sm message error"
-      content: "Une erreur est survenue ! Veuillez utiliser cet e-mail - [folex-astro-theme@gmail.com](mailto:folex-astro-theme@gmail.com) pour soumettre un ticket !"
+      content: "Une erreur est survenue ! Veuillez utiliser cet e-mail - [mason-astro-theme@gmail.com](mailto:mason-astro-theme@gmail.com) pour soumettre un ticket !"
 ---

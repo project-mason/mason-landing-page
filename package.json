@@ -1,9 +1,9 @@
 {
-  "name": "folex-lite-astro",
+  "name": "project-mason-landing-page",
   "type": "module",
   "version": "1.0.0",
-  "description": "A highly customizable creative agency & personal portfolio business theme built with Tailwind CSS and Astro Js",
-  "author": "getastrothemes",
+  "description": "A landing page to showcase Project Mason",
+  "author": "project-mason",
   "license": "SEE LICENSE IN LICENSE.md",
   "packageManager": "pnpm@8.15.5",
   "private": true,
@@ -14,7 +14,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/getastrothemes/folex-lite-astro.git"
+    "url": "https://github.com/project-mason/mason-landing-page.git"
   },
   "engines": {
     "node": ">=18.20.8 <19 || >=20.3.0 <21 || >=22.0.0",

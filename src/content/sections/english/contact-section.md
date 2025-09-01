@@ -29,13 +29,13 @@ map:
 #   - title: "Email Address"
 #     icon: "/images/icons/svg/message-filled.svg"
 #     description: |
-#       folex.agency@mail.com
-#       folex.agency@support.com
+#       mason.agency@mail.com
+#       mason.agency@support.com
 #     button:
 #       # Refer to the `sharedButton` schema in `src/sections.schema.ts` for all available configuration options (e.g., enable, label, url, hoverEffect, variant, icon, tag, rel, class, target, etc.)
 #       enable: true
 #       label: "Send Message"
-#       url: "mailto:folex.agency@mail.com"
+#       url: "mailto:mason.agency@mail.com"
 #       # hoverEffect: "" # Optional: text-flip | creative-fill | magnetic | magnetic-text-flip
 #       # variant: "" # Optional: fill | outline | text | circle
 #       # rel: "" # Optional
@@ -59,7 +59,7 @@ map:
 # Check config.toml file for form action related settings
 # this is also used in the footer of the personal portfolio homepage
 form:
-  emailSubject: "New form submission from folex website" # Customized email subject (applicable when anyone submit form, form submission may receive by email depend on provider)
+  emailSubject: "New form submission from mason website" # Customized email subject (applicable when anyone submit form, form submission may receive by email depend on provider)
   submitButton:
     # Refer to the `sharedButton` schema in `src/sections.schema.ts` for all available configuration options (e.g., enable, label, url, hoverEffect, variant, icon, tag, rel, class, target, etc.)
     enable: true
@@ -185,5 +185,5 @@ form:
       content: We have received your message! We'll get back to you as soon as possible.
     - note: deprecated # info | warning | success | deprecated | hint
       parentClass: "hidden text-sm message error"
-      content: Something went wrong! please use this mail - [folex-astro-theme@gmail.com](mailto:folex-astro-theme@gmail.com) to submit a ticket!
+      content: Something went wrong! please use this mail - [mason-astro-theme@gmail.com](mailto:mason-astro-theme@gmail.com) to submit a ticket!
 ---
