@@ -25,13 +25,45 @@
 # Specific SEO configurations that complement the general site settings.
 # -----------------------------------------------------------------------------------------------------------------------------------
 [seo]
-  author = "Getastrothemes"
+  author = "projectmason"
   keywords = [
-    "free digital agency",
-    "free astro template",
-    "free astro theme",
-    "free astro agency template",
-    "free astro agency theme",
+    "hvac",
+    "plumbing",
+    "electrical",
+    "landscaping",
+    "lawn care",
+    "cleaning",
+    "contractor",
+    "construction",
+    "painting",
+    "handyman",
+    "locksmith",
+    "junk removal",
+    "tree service",
+    "pest control",
+    "roofing",
+    "scheduling software",
+    "dispatch software",
+    "job management software",
+    "field service management",
+    "invoice software",
+    "booking software",
+    "customer management",
+    "estimate software",
+    "quote software",
+    "work order software",
+    "service software",
+    "business management software",
+    "software for trades",
+    "app for contractors",
+    "field service app",
+    "mobile scheduling app",
+    "service business software",
+    "small business software",
+    "automate scheduling",
+    "get more jobs",
+    "organize my business",
+    "dispatch app",
   ]
   robots = "index, follow" # Instructs search engines on how to crawl and index the pages.
 
