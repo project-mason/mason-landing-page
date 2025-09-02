@@ -3,7 +3,7 @@ content-type: application/json
 
 {
   "subject": "subject",
-  "name": "<name",
+  "name": "name",
   "email": "email@email.com",
   "businessType": "type",
   "companySize": "size",

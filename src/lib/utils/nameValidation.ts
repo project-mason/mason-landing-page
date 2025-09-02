@@ -18,18 +18,18 @@ interface ValidationResult {
 
 export function isValidPersonName(
   name: string,
-  options: NameValidationOptions = {}
+  options: NameValidationOptions = {},
 ): ValidationResult {
   const {
     minLength = 2,
     maxLength = 50,
     allowNumbers = false,
-    allowSpecialChars = false
+    allowSpecialChars = false,
   } = options;
 
   // Check if name is provided
-  if (!name || typeof name !== 'string') {
-    return { isValid: false, message: 'Name is required' };
+  if (!name || typeof name !== "string") {
+    return { isValid: false, message: "Name is required" };
   }
 
   // Trim whitespace
@@ -39,14 +39,14 @@ export function isValidPersonName(
   if (trimmedName.length < minLength) {
     return {
       isValid: false,
-      message: `Name must be at least ${minLength} characters long`
+      message: `Name must be at least ${minLength} characters long`,
     };
   }
 
   if (trimmedName.length > maxLength) {
     return {
       isValid: false,
-      message: `Name must be less than ${maxLength} characters long`
+      message: `Name must be less than ${maxLength} characters long`,
     };
   }
 
@@ -71,7 +71,7 @@ export function isValidPersonName(
   if (!validCharactersRegex.test(trimmedName)) {
     return {
       isValid: false,
-      message: 'Name contains invalid characters'
+      message: "Name contains invalid characters",
     };
   }
 
@@ -81,7 +81,7 @@ export function isValidPersonName(
     if (consecutiveSpecialChars.test(trimmedName)) {
       return {
         isValid: false,
-        message: 'Name contains consecutive special characters'
+        message: "Name contains consecutive special characters",
       };
     }
   }
@@ -92,7 +92,7 @@ export function isValidPersonName(
     if (startsOrEndsWithSpecialChar.test(trimmedName)) {
       return {
         isValid: false,
-        message: 'Name cannot start or end with a special character'
+        message: "Name cannot start or end with a special character",
       };
     }
   }
@@ -102,7 +102,7 @@ export function isValidPersonName(
   if (!hasLetters) {
     return {
       isValid: false,
-      message: 'Name must contain at least one letter'
+      message: "Name must contain at least one letter",
     };
   }
 

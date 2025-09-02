@@ -24,8 +24,8 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "preview": "astro build && npm run remove-draft-from-sitemap && astro preview",
-    "build": "npm run check && astro build && npm run remove-draft-from-sitemap",
+    "preview": "astro build && pnpm remove-draft-from-sitemap && astro preview",
+    "build": "pnpm check && pnpm audit && astro build && pnpm remove-draft-from-sitemap",
     "check": "astro check",
     "format": "prettier --write ./src",
     "generate-favicons": "node ./scripts/generate-favicons.mjs",

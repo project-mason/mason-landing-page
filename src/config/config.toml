@@ -84,7 +84,7 @@
     "service business software",
     "skilled trade software",
     "home service software",
-    "field service software"
+    "field service software",
   ]
   robots = "index, follow" # Instructs search engines on how to crawl and index the pages.
 

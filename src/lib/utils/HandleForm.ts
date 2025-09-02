@@ -286,38 +286,25 @@ export const netlifySubmit = async (form: HTMLFormElement, action: string) => {
  *
  * @param form - The form element.
  */
-export const googleSubmit = async (
-  timeout: number,
-  form: HTMLFormElement,
-) => {
+export const googleSubmit = async (timeout: number, form: HTMLFormElement) => {
   const data = Object.fromEntries(new FormData(form).entries());
   try {
-    const response = await fetch('/api/submit', {
-      method: 'POST',
+    const response = await fetch("/api/submit", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
     });
 
     if (response.status !== 200) {
-      setMessage(
-        response.statusText,
-        false,
-        false,
-        form,
-      );
+      setMessage(response.statusText, false, false, form);
       throw new Error(response.statusText);
     }
 
     setMessage("default", true, false, form);
     formReset(form);
   } catch (error) {
-    setMessage(
-      error + '',
-      true,
-      false,
-      form,
-    );
+    setMessage(error + "", true, false, form);
   }
 };
