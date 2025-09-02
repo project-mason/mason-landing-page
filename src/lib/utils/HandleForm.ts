@@ -290,10 +290,11 @@ export const googleSubmit = async (
   timeout: number,
   form: HTMLFormElement,
 ) => {
-  const data = new URLSearchParams(new FormData(form) as any).toString();
+  const data = Object.fromEntries(new FormData(form).entries())
+  const path = '/api/submit';
   try {
     await fetchWithTimeout(
-      import.meta.env.PUBLIC_GOOGLE_EMAIL_URL,
+      path,
       data,
       new AbortController(),
       timeout,

@@ -6,7 +6,7 @@ interface ContactFormData {
   name: string;
   email: string;
   message: string;
-  [key: string]: string; // For any additional fields
+  [key: string]: string;
 }
 
 // Type definition for the response from Google Apps Script
@@ -16,14 +16,31 @@ interface GoogleAppsScriptResponse {
 }
 
 // Environment variable (set in your deployment platform)
-const GOOGLE_SCRIPT_URL = import.meta.env.GOOGLE_SCRIPT_URL;
+const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL;
 
 // Validate environment variable
 if (!GOOGLE_SCRIPT_URL && import.meta.env.PROD) {
   console.error('GOOGLE_SCRIPT_URL environment variable is not set');
 }
 
-export const post: APIRoute = async ({ request }) => {
+// CORS headers
+const corsHeaders = {
+  'Access-Control-Allow-Origin': import.meta.env.PROD
+    ? 'https://yourdomain.com'  // Replace with your production domain
+    : 'http://localhost:4321',  // For development
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type',
+};
+
+export const POST: APIRoute = async ({ request }) => {
+  // Handle preflight OPTIONS request
+  if (request.method === 'OPTIONS') {
+    return new Response(null, {
+      status: 200,
+      headers: corsHeaders,
+    });
+  }
+
   // Check if the request has a JSON body
   if (request.headers.get('Content-Type') !== 'application/json') {
     return new Response(
@@ -32,7 +49,10 @@ export const post: APIRoute = async ({ request }) => {
       }),
       {
         status: 400,
-        headers: { 'Content-Type': 'application/json' }
+        headers: {
+          'Content-Type': 'application/json',
+          ...corsHeaders,
+        }
       }
     );
   }
@@ -43,6 +63,8 @@ export const post: APIRoute = async ({ request }) => {
     // Parse and validate the request body
     data = await request.json();
 
+    console.debug("data:", data);
+
     // Basic validation
     if (!data.name || !data.email || !data.message) {
       return new Response(
@@ -51,7 +73,10 @@ export const post: APIRoute = async ({ request }) => {
         }),
         {
           status: 400,
-          headers: { 'Content-Type': 'application/json' }
+          headers: {
+            'Content-Type': 'application/json',
+            ...corsHeaders,
+          }
         }
       );
     }
@@ -65,7 +90,10 @@ export const post: APIRoute = async ({ request }) => {
         }),
         {
           status: 400,
-          headers: { 'Content-Type': 'application/json' }
+          headers: {
+            'Content-Type': 'application/json',
+            ...corsHeaders,
+          }
         }
       );
     }
@@ -76,7 +104,10 @@ export const post: APIRoute = async ({ request }) => {
       }),
       {
         status: 400,
-        headers: { 'Content-Type': 'application/json' }
+        headers: {
+          'Content-Type': 'application/json',
+          ...corsHeaders,
+        }
       }
     );
   }
@@ -105,7 +136,10 @@ export const post: APIRoute = async ({ request }) => {
         }),
         {
           status: 200,
-          headers: { 'Content-Type': 'application/json' }
+          headers: {
+            'Content-Type': 'application/json',
+            ...corsHeaders,
+          }
         }
       );
     } else {
@@ -115,7 +149,10 @@ export const post: APIRoute = async ({ request }) => {
         }),
         {
           status: 500,
-          headers: { 'Content-Type': 'application/json' }
+          headers: {
+            'Content-Type': 'application/json',
+            ...corsHeaders,
+          }
         }
       );
     }
@@ -128,23 +165,27 @@ export const post: APIRoute = async ({ request }) => {
       }),
       {
         status: 500,
-        headers: { 'Content-Type': 'application/json' }
+        headers: {
+          'Content-Type': 'application/json',
+          ...corsHeaders,
+        }
       }
     );
   }
 };
 
-// Add a GET handler to provide information about the endpoint
-export const get: APIRoute = async () => {
-  return new Response(
-    JSON.stringify({
-      message: 'Contact form submission endpoint',
-      method: 'POST',
-      requiredFields: ['name', 'email', 'message']
-    }),
-    {
-      status: 200,
-      headers: { 'Content-Type': 'application/json' }
-    }
-  );
+// Handle OPTIONS requests for CORS preflight
+export const OPTIONS: APIRoute = async () => {
+  return new Response(null, {
+    status: 200,
+    headers: corsHeaders,
+  });
+};
+
+// Handle OPTIONS requests for CORS preflight
+export const GET: APIRoute = async () => {
+  return new Response("/api/submit", {
+    status: 200,
+    headers: corsHeaders,
+  });
 };

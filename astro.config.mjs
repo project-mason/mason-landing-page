@@ -22,6 +22,7 @@ let {
 
 // https://astro.build/config
 export default defineConfig({
+  output: 'server', // Server-side rendering
   site: config.site.baseUrl ? config.site.baseUrl : "http://examplesite.com",
   trailingSlash: config.site.trailingSlash ? "always" : "never",
   i18n: {
