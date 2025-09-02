@@ -3,13 +3,13 @@
 enable: true # Control the visibility of this section across all pages where it is used
 title: "Let’s Work Together"
 description: |
-  Mason is a business management platform designed for skilled trades. Get features like online booking, automated invoicing, job tracking, and customer management—everything you need to grow your business and save hours every week.
+  We're a small team passionate about helping local tradespeople succeed. We're not a giant corporation. Tell us what you need, and we'll tailor Mason to your liking. Sign up for our waitlist to get exclusive early access and a lifetime discount.
 
 button:
   enable: true
   variant: "fill" # Options: "fill" | "outline" | "text" | "circle"
-  label: "Let’s Talk with us"
-  url: "/"
+  label: "Join the Waitlist"
+  url: "/#contact-us"
   rel: ""
   target: ""
 
