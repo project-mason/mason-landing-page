@@ -1,0 +1,11 @@
+POST http://localhost:4321/api/submit HTTP/1.1
+content-type: application/json
+
+{
+  "subject": "subject",
+  "name": "<name",
+  "email": "email@email.com",
+  "businessType": "type",
+  "companySize": "size",
+  "source": "source"
+}

@@ -1,4 +1,5 @@
 // src/pages/api/submit.ts
+import { isValidPersonName } from '@/lib/utils/nameValidation';
 import type { APIRoute } from 'astro';
 
 // Type definitions for our form data
@@ -17,6 +18,8 @@ interface GoogleAppsScriptResponse {
   result: 'success' | 'error';
   message: string;
 }
+
+const defaultErrMsg = 'Please use this email - [projectmasonco@gmail.com](mailto:projectmasonco@gmail.com) - to submit your inquiry!';
 
 // Environment variable (set in your deployment platform)
 const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL;
@@ -46,12 +49,14 @@ export const POST: APIRoute = async ({ request }) => {
 
   // Check if the request has a JSON body
   if (request.headers.get('Content-Type') !== 'application/json') {
+    const errMsg = 'Invalid content type. Please use application/json';
     return new Response(
       JSON.stringify({
-        error: 'Invalid content type. Please use application/json'
+        error: errMsg
       }),
       {
         status: 400,
+        statusText: errMsg,
         headers: {
           'Content-Type': 'application/json',
           ...corsHeaders,
@@ -77,12 +82,14 @@ export const POST: APIRoute = async ({ request }) => {
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(data.email)) {
+      const errMsg = 'Invalid email format';
       return new Response(
         JSON.stringify({
-          error: 'Invalid email format'
+          error: errMsg
         }),
         {
           status: 400,
+          statusText: errMsg,
           headers: {
             'Content-Type': 'application/json',
             ...corsHeaders,
@@ -90,13 +97,33 @@ export const POST: APIRoute = async ({ request }) => {
         }
       );
     }
+
+    const result = isValidPersonName(data.name);
+    if (!result.isValid) {
+      return new Response(
+        JSON.stringify({
+          error: result.message
+        }),
+        {
+          status: 400,
+          statusText: result.message,
+          headers: {
+            'Content-Type': 'application/json',
+            ...corsHeaders,
+          }
+        }
+      );
+    }
+
   } catch (error) {
+    const errMsg = 'Invalid JSON in request body';
     return new Response(
       JSON.stringify({
-        error: 'Invalid JSON in request body'
+        error: errMsg
       }),
       {
         status: 400,
+        statusText: errMsg,
         headers: {
           'Content-Type': 'application/json',
           ...corsHeaders,
@@ -136,12 +163,14 @@ export const POST: APIRoute = async ({ request }) => {
         }
       );
     } else {
+      const errMsg = result.message || 'Unknown error occurred';
       return new Response(
         JSON.stringify({
-          error: result.message || 'Unknown error occurred'
+          error: errMsg
         }),
         {
           status: 500,
+          statusText: errMsg,
           headers: {
             'Content-Type': 'application/json',
             ...corsHeaders,
@@ -151,13 +180,14 @@ export const POST: APIRoute = async ({ request }) => {
     }
   } catch (error) {
     console.error('Error forwarding to Google Apps Script:', error);
-
+    const errMsg = 'Failed to process your request. Please try again later.';
     return new Response(
       JSON.stringify({
-        error: 'Failed to process your request. Please try again later.'
+        error: errMsg
       }),
       {
         status: 500,
+        statusText: errMsg,
         headers: {
           'Content-Type': 'application/json',
           ...corsHeaders,

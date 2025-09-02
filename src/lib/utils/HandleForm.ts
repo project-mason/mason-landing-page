@@ -292,19 +292,29 @@ export const googleSubmit = async (
 ) => {
   const data = Object.fromEntries(new FormData(form).entries());
   try {
-    await fetch('/api/submit', {
+    const response = await fetch('/api/submit', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
     });
+
+    if (response.status !== 200) {
+      setMessage(
+        response.statusText,
+        false,
+        false,
+        form,
+      );
+      throw new Error(response.statusText);
+    }
+
     setMessage("default", true, false, form);
     formReset(form);
   } catch (error) {
     setMessage(
-      error +
-        "! Please use this mail - [projectmasonco@gmail.com](mailto:projectmasonco@gmail.com) to submit your inquiry!",
+      error + '',
       true,
       false,
       form,
