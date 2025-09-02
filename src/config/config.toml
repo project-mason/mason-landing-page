@@ -1,8 +1,8 @@
 # Site Configuration
 [site]
   title            = "Mason" # Shared title for SEO and OpenGraph
-  description      = "A highly customizable creative agency business theme built with Tailwind CSS and Astro Js" # Shared description for SEO and OpenGraph
-  tagline          = "Creative Agency & Personal Portfolio Business Theme"
+  description      = "Simple, affordable job management software built for Atlanta HVAC companies. Schedule jobs, send invoices, and get paid faster from your phone." # Shared description for SEO and OpenGraph
+  tagline          = "HVAC Dispatch Software | Simple Scheduling for Atlanta Contractors"
   taglineSeparator = "" # default is " - "
   baseUrl          = "https://mason-lite-astro.vercel.app/" # Base URL for the site and used in OpenGraph meta tags.
   logo             = "/images/logo.svg" # Path to the site's logo
@@ -13,7 +13,7 @@
 
   # Add a trailing slash at the end of URLs (e.g., https://example.com/, https://example.com/contact/)
   # Note: Manually restart your server when you change this value
-  trailingSlash = false
+  trailingSlash = true
 
   # Add your site logo in image path below and open your terminal and run "npm run generate-favicons" to generate favicons for different devices and platform (https://realfavicongenerator.net/checker)
   [site.favicon]
@@ -27,48 +27,64 @@
 [seo]
   author = "projectmason"
   keywords = [
-    # Primary Service Niches
+    # Primary Service Niche
     "hvac",
-    "plumbing",
-    "electrical",
-    "landscaping",
-    "lawn care",
-    "cleaning",
-    "contractor",
-    "construction",
-    "painting",
-    "handyman",
-    "locksmith",
-    "junk removal",
-    "tree service",
-    "pest control",
-    "roofing",
+    "hvac software",
+    "hvac business software",
+    "hvac dispatch software",
+    "hvac scheduling software",
+    "hvac invoicing software",
+    "hvac field service software",
+    "hvac job management software",
+
+    # Geographic Focus
+    "atlanta hvac software",
+    "georgia hvac software",
+    "atlanta field service management",
+    "hvac software atlanta ga",
+    "hvac contractors atlanta",
 
     # Core Software Functions
-    "scheduling software",
-    "dispatch software",
-    "job management software",
     "field service management",
+    "dispatch software",
+    "scheduling software",
+    "job management software",
+    "service dispatch software",
+    "mobile field service",
     "invoice software",
-    "booking software",
-    "customer management",
-    "estimate software",
-    "quote software",
+    "estimating software",
+    "customer management software",
     "work order software",
-    "service software",
-    "business management software",
 
-    # Keywords with Intent
-    "software for trades",
-    "app for contractors",
+    # Keywords with Pain Points & Intent
+    "hvac scheduling app",
+    "hvac invoicing app",
+    "get paid faster hvac",
+    "missed call software",
+    "reduce admin time hvac",
+    "streamline hvac business",
+    "mobile invoicing for contractors",
+    "service dispatch solution",
+    "hvac business management",
     "field service app",
-    "mobile scheduling app",
+
+    # Alternative Terms & Comparisons
+    "service titan alternative",
+    "jobber alternative",
+    "housecall pro alternative",
+    "hvac software affordable",
+    "simple hvac software",
+    "hvac software for small business",
+
+    # Local Service Trades (Related)
+    "plumbing software",
+    "electrical software",
+    "contractor software",
+    "trade business software",
     "service business software",
-    "small business software",
-    "automate scheduling",
-    "get more jobs",
-    "organize my business",
-    "dispatch app",
+    "skilled trade software",
+    "home service software",
+    "field service software"
   ]
   robots = "index, follow" # Instructs search engines on how to crawl and index the pages.
 
