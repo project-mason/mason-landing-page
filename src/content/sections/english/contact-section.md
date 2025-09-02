@@ -63,7 +63,7 @@ form:
   submitButton:
     # Refer to the `sharedButton` schema in `src/sections.schema.ts` for all available configuration options (e.g., enable, label, url, hoverEffect, variant, icon, tag, rel, class, target, etc.)
     enable: true
-    label: "SEND MESSAGE"
+    label: "JOIN WAITLIST"
     # hoverEffect: "" # Optional: text-flip | creative-fill | magnetic | magnetic-text-flip
     # variant: "" # Optional: fill | outline | text | circle
     # rel: "" # Optional
@@ -75,20 +75,20 @@ form:
   inputs:
     - label: ""
       placeholder: "Full Name *"
-      name: "Full Name" # This is crucial. Its indicate under which name you want to receive this field data
+      name: "name" # This is crucial. Its indicate under which name you want to receive this field data
       required: true
       halfWidth: true
       defaultValue: ""
     - label: ""
       placeholder: "Email Address *"
-      name: "Email Address" # This is crucial. Its indicate under which name you want to receive this field data
+      name: "email" # This is crucial. Its indicate under which name you want to receive this field data
       required: true
       type: "email"
       halfWidth: true
       defaultValue: ""
     - label: ""
       placeholder: "Business Type *"
-      name: "Business Type" # This is crucial. Its indicate under which name you want to receive this field data
+      name: "businessType" # This is crucial. Its indicate under which name you want to receive this field data
       required: false
       halfWidth: true
       dropdown:
@@ -159,28 +159,28 @@ form:
           - label: "Other"
             value: "Other"
             selected: false
-    - label: ""
-      placeholder: "Subject *"
-      name: "Subject" # This is crucial. Its indicate under which name you want to receive this field data
-      required: false
-      halfWidth: true
-      dropdown:
-        type: "" # select | search - default is select
-        search: # if type is search then it will work
-          placeholder: ""
-        items:
-          - label: "General Inquiry"
-            value: "General Inquiry"
-            selected: false
-          - label: "Join Waitlist"
-            value: "Join Waitlist"
-            selected: false
-          - label: "Request Quote"
-            value: "Request Quote"
-            selected: false
+    # - label: ""
+    #   placeholder: "Subject *"
+    #   name: "Subject" # This is crucial. Its indicate under which name you want to receive this field data
+    #   required: false
+    #   halfWidth: true
+    #   dropdown:
+    #     type: "" # select | search - default is select
+    #     search: # if type is search then it will work
+    #       placeholder: ""
+    #     items:
+    #       - label: "General Inquiry"
+    #         value: "General Inquiry"
+    #         selected: false
+    #       - label: "Join Waitlist"
+    #         value: "Join Waitlist"
+    #         selected: false
+    #       - label: "Request Quote"
+    #         value: "Request Quote"
+    #         selected: false
     - label: ""
       placeholder: "Company Size *"
-      name: "Company Size" # This is crucial. Its indicate under which name you want to receive this field data
+      name: "companySize" # This is crucial. Its indicate under which name you want to receive this field data
       required: false
       halfWidth: true
       dropdown:
@@ -197,17 +197,17 @@ form:
           - label: "31+"
             value: "31+"
             selected: false
-    - label: ""
-      tag: "textarea"
-      defaultValue: ""
-      rows: "2" # Only work if tag is textarea
-      placeholder: "How can we help you *"
-      name: "Message" # This is crucial. Its indicate under which name you want to receive this field data
-      required: true
-      halfWidth: false
+    # - label: ""
+    #   tag: "textarea"
+    #   defaultValue: ""
+    #   rows: "2" # Only work if tag is textarea
+    #   placeholder: "How can we help you *"
+    #   name: "Message" # This is crucial. Its indicate under which name you want to receive this field data
+    #   required: true
+    #   halfWidth: false
     - label: "Google" # only valid for type="checkbox" & type === "radio"
       checked: false # only valid for type="checkbox" & type === "radio"
-      name: "User Source" # This is crucial. Its indicate under which name you want to receive this field data
+      name: "source" # This is crucial. Its indicate under which name you want to receive this field data
       required: true
       groupLabel: "How did you hear about us?" # Radio Inputs Label
       group: "source" # when you add group then it will omit space between the same group radio input
@@ -215,7 +215,7 @@ form:
       halfWidth: true
       defaultValue: ""
     - label: "Facebook" # only valid for type="checkbox" & type === "radio"
-      name: "User Source" # This is crucial. Its indicate under which name you want to receive this field data
+      name: "source" # This is crucial. Its indicate under which name you want to receive this field data
       required: true
       groupLabel: "" # Radio Inputs Label
       group: "source" # when you add group then it will omit space between the same group radio input
@@ -223,7 +223,7 @@ form:
       halfWidth: true
       defaultValue: ""
     - label: "Other" # only valid for type="checkbox" & type === "radio"
-      name: "User Source" # This is crucial. Its indicate under which name you want to receive this field data
+      name: "source" # This is crucial. Its indicate under which name you want to receive this field data
       required: true
       groupLabel: "" # Radio Inputs Label
       group: "source" # when you add group then it will omit space between the same group radio input
@@ -257,7 +257,7 @@ form:
     #   defaultValue: ""
     - note: success # info | warning | success | deprecated | hint
       parentClass: "hidden text-sm message success"
-      content: We have received your message! We'll get back to you as soon as possible.
+      content: Thank you for joining the waitlist. We are excited to show you what we're capable of!
     - note: deprecated # info | warning | success | deprecated | hint
       parentClass: "hidden text-sm message error"
       content: Something went wrong! please use this mail - [projectmasonco@gmail.com](mailto:projectmasonco@gmail.com) to submit your inquiry!

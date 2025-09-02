@@ -3,10 +3,13 @@ import type { APIRoute } from 'astro';
 
 // Type definitions for our form data
 interface ContactFormData {
+  subject: string;
   name: string;
   email: string;
-  message: string;
-  [key: string]: string;
+  businessType: string;
+  companySize: string;
+  source: string;
+
 }
 
 // Type definition for the response from Google Apps Script
@@ -64,22 +67,6 @@ export const POST: APIRoute = async ({ request }) => {
     data = await request.json();
 
     console.debug("data:", data);
-
-    // Basic validation
-    if (!data.name || !data.email || !data.message) {
-      return new Response(
-        JSON.stringify({
-          error: 'Missing required fields: name, email, or message'
-        }),
-        {
-          status: 400,
-          headers: {
-            'Content-Type': 'application/json',
-            ...corsHeaders,
-          }
-        }
-      );
-    }
 
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
