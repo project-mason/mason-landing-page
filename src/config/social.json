@@ -1,25 +1,25 @@
 {
   "main": [
     {
-      "enable": true,
+      "enable": false,
       "label": "facebook",
       "icon": "FaFacebook",
       "url": "https://www.facebook.com/mason"
     },
     {
-      "enable": true,
+      "enable": false,
       "label": "twitter",
       "icon": "FaXTwitter",
       "url": "https://twitter.com/mason"
     },
     {
-      "enable": true,
+      "enable": false,
       "label": "instagram",
       "icon": "FaInstagram",
       "url": "https://www.instagram.com/mason"
     },
     {
-      "enable": true,
+      "enable": false,
       "label": "linkedin",
       "icon": "FaLinkedin",
       "url": "https://www.linkedin.com/mason"

@@ -222,6 +222,38 @@ form:
       type: "radio"
       halfWidth: true
       defaultValue: ""
+    - label: "Instagram" # only valid for type="checkbox" & type === "radio"
+      name: "source" # This is crucial. Its indicate under which name you want to receive this field data
+      required: true
+      groupLabel: "" # Radio Inputs Label
+      group: "source" # when you add group then it will omit space between the same group radio input
+      type: "radio"
+      halfWidth: true
+      defaultValue: ""
+    - label: "Reddit" # only valid for type="checkbox" & type === "radio"
+      name: "source" # This is crucial. Its indicate under which name you want to receive this field data
+      required: true
+      groupLabel: "" # Radio Inputs Label
+      group: "source" # when you add group then it will omit space between the same group radio input
+      type: "radio"
+      halfWidth: true
+      defaultValue: ""
+    - label: "LinkedIn" # only valid for type="checkbox" & type === "radio"
+      name: "source" # This is crucial. Its indicate under which name you want to receive this field data
+      required: true
+      groupLabel: "" # Radio Inputs Label
+      group: "source" # when you add group then it will omit space between the same group radio input
+      type: "radio"
+      halfWidth: true
+      defaultValue: ""
+    - label: "Nextdoor" # only valid for type="checkbox" & type === "radio"
+      name: "source" # This is crucial. Its indicate under which name you want to receive this field data
+      required: true
+      groupLabel: "" # Radio Inputs Label
+      group: "source" # when you add group then it will omit space between the same group radio input
+      type: "radio"
+      halfWidth: true
+      defaultValue: ""
     - label: "Other" # only valid for type="checkbox" & type === "radio"
       name: "source" # This is crucial. Its indicate under which name you want to receive this field data
       required: true

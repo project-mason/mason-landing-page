@@ -290,15 +290,15 @@ export const googleSubmit = async (
   timeout: number,
   form: HTMLFormElement,
 ) => {
-  const data = Object.fromEntries(new FormData(form).entries())
-  const path = '/api/submit';
+  const data = Object.fromEntries(new FormData(form).entries());
   try {
-    await fetchWithTimeout(
-      path,
-      data,
-      new AbortController(),
-      timeout,
-    );
+    await fetch('/api/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
     setMessage("default", true, false, form);
     formReset(form);
   } catch (error) {
