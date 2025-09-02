@@ -68,6 +68,7 @@ export const POST: APIRoute = async ({ request }) => {
 
     // Check if bot
     if (data.website && data.website.length > 0) {
+      console.debug("website recorded");
       return new Response(JSON.stringify({ message: "Success" }), { status: 200 });
     }
 
