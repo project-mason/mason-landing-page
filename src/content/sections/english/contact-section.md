@@ -209,7 +209,7 @@ form:
       checked: false # only valid for type="checkbox" & type === "radio"
       name: "source" # This is crucial. Its indicate under which name you want to receive this field data
       required: true
-      groupLabel: "How did you hear about us?" # Radio Inputs Label
+      groupLabel: "How did you hear about us? *" # Radio Inputs Label
       group: "source" # when you add group then it will omit space between the same group radio input
       type: "radio"
       halfWidth: true

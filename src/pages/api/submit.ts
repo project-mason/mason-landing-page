@@ -9,7 +9,7 @@ interface ContactFormData {
   businessType: string;
   companySize: string;
   source: string;
-
+  website?: string;
 }
 
 // Type definition for the response from Google Apps Script
@@ -65,6 +65,11 @@ export const POST: APIRoute = async ({ request }) => {
   try {
     // Parse and validate the request body
     data = await request.json();
+
+    // Check if bot
+    if (data.website && data.website.length > 0) {
+      return new Response(JSON.stringify({ message: "Success" }), { status: 200 });
+    }
 
     console.debug("data:", data);
 
