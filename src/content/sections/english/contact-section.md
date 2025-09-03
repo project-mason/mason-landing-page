@@ -289,7 +289,7 @@ form:
     #   defaultValue: ""
     - note: success # info | warning | success | deprecated | hint
       parentClass: "hidden text-sm message success"
-      content: Thank you for joining the waitlist. We are excited to show you what we're capable of!
+      content: Thank you for joining the waitlist! We'll be sending you a confirmation email - be sure to check your spam folder!
     - note: deprecated # info | warning | success | deprecated | hint
       parentClass: "hidden text-sm message error"
       content: Something went wrong! please use this mail - [projectmasonco@gmail.com](mailto:projectmasonco@gmail.com) to submit your inquiry!
