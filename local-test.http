@@ -1,0 +1,10 @@
+POST http://localhost:4321/api/submit HTTP/1.1
+content-type: application/json
+
+{
+  "subject": "LANDING PAGE EMAIL TEST",
+  "firstName": "Diamond",
+  "lastName": "McGinley",
+  "email": "dsprat96@gmail.com",
+  "source": "google"
+}

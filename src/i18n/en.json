@@ -1,0 +1,20 @@
+{
+  "common": {
+    "viewDetails": "View Details",
+    "learnMoreAbout": "Learn more about",
+    "paginationPrevious": "Previous",
+    "paginationNext": "Next",
+    "paginationPortfolioPrev": "Previous Portfolio",
+    "paginationPortfolioNext": "Next Portfolio"
+  },
+  "headerOffcanvas": {
+    "description": "Streamline your HVAC business. Our all-in-one software handles scheduling, dispatch, and invoices so you can focus on the work.",
+    "buttonLabel": "Join the Waitlist"
+  },
+  "navigation": {
+    "buttonLabel": "Join the Waitlist"
+  },
+  "footer": {
+    "copyright": "Copyright © {{ year }} by Project Mason"
+  }
+}
