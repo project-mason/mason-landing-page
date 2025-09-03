@@ -1,5 +1,5 @@
 // src/pages/api/submit.ts
-import { isValidPersonName } from "@/lib/utils/nameValidation";
+import { isValidText } from "@/lib/utils/textValidation";
 import type { APIRoute } from "astro";
 
 export const prerender = false; // service side rendering
@@ -7,11 +7,10 @@ export const prerender = false; // service side rendering
 // Type definitions for our form data
 interface ContactFormData {
   subject: string;
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
-  businessType: string;
-  companySize: string;
-  source: string;
+  companyName?: string;
   website?: string;
 }
 
@@ -21,8 +20,7 @@ interface GoogleAppsScriptResponse {
   message: string;
 }
 
-const defaultErrMsg =
-  "Please use this email - [projectmasonco@gmail.com](mailto:projectmasonco@gmail.com) - to submit your inquiry!";
+const defaultErrMsg = "Failed to process your request. Please try again later.";
 
 // Environment variable (set in your deployment platform)
 const GOOGLE_SCRIPT_URL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL;
@@ -104,15 +102,15 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
-    const result = isValidPersonName(data.name);
-    if (!result.isValid) {
+    const first = isValidText("First Name", data.firstName);
+    if (!first.isValid) {
       return new Response(
         JSON.stringify({
-          error: result.message,
+          error: first.message,
         }),
         {
           status: 400,
-          statusText: result.message,
+          statusText: first.message,
           headers: {
             "Content-Type": "application/json",
             ...corsHeaders,
@@ -120,15 +118,52 @@ export const POST: APIRoute = async ({ request }) => {
         },
       );
     }
+
+    const last = isValidText("Last Name", data.lastName);
+    if (!last.isValid) {
+      return new Response(
+        JSON.stringify({
+          error: last.message,
+        }),
+        {
+          status: 400,
+          statusText: last.message,
+          headers: {
+            "Content-Type": "application/json",
+            ...corsHeaders,
+          },
+        },
+      );
+    }
+
+    if (data.companyName && data.companyName.length > 0) {
+      const comp = isValidText("Company Name", data.companyName, { allowNumbers: true });
+      if (!comp.isValid) {
+        return new Response(
+          JSON.stringify({
+            error: comp.message,
+          }),
+          {
+            status: 400,
+            statusText: comp.message,
+            headers: {
+              "Content-Type": "application/json",
+              ...corsHeaders,
+            },
+          },
+        );
+      }
+    }
+
   } catch (error) {
-    const errMsg = "Invalid JSON in request body";
+    console.error(error + "! Invalid JSON in request body");
     return new Response(
       JSON.stringify({
-        error: errMsg,
+        error: defaultErrMsg,
       }),
       {
         status: 400,
-        statusText: errMsg,
+        statusText: defaultErrMsg,
         headers: {
           "Content-Type": "application/json",
           ...corsHeaders,
@@ -185,14 +220,13 @@ export const POST: APIRoute = async ({ request }) => {
     }
   } catch (error) {
     console.error("Error forwarding to Google Apps Script:", error);
-    const errMsg = "Failed to process your request. Please try again later.";
     return new Response(
       JSON.stringify({
-        error: errMsg,
+        error: defaultErrMsg,
       }),
       {
         status: 500,
-        statusText: errMsg,
+        statusText: defaultErrMsg,
         headers: {
           "Content-Type": "application/json",
           ...corsHeaders,

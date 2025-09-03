@@ -74,8 +74,14 @@ form:
   #   Your data is safe with us. We respect your privacy and never share your information. <br /> Read our [Privacy Policy](/privacy-policy/).
   inputs:
     - label: ""
-      placeholder: "Full Name *"
-      name: "name" # This is crucial. Its indicate under which name you want to receive this field data
+      placeholder: "First Name *"
+      name: "firstName" # This is crucial. Its indicate under which name you want to receive this field data
+      required: true
+      halfWidth: true
+      defaultValue: ""
+    - label: ""
+      placeholder: "Last Name *"
+      name: "lastName" # This is crucial. Its indicate under which name you want to receive this field data
       required: true
       halfWidth: true
       defaultValue: ""
@@ -87,78 +93,84 @@ form:
       halfWidth: true
       defaultValue: ""
     - label: ""
-      placeholder: "Business Type *"
-      name: "businessType" # This is crucial. Its indicate under which name you want to receive this field data
+      placeholder: "Company Name"
+      name: "companyName" # This is crucial. Its indicate under which name you want to receive this field data
       required: false
       halfWidth: true
-      dropdown:
-        type: "search" # select | search - default is select
-        search: # if type is search then it will work
-          placeholder: "Type to Search"
-        items:
-          - label: "Plumbing Services"
-            value: "Plumbing Services"
-            selected: false
-          - label: "Electrical Services"
-            value: "Electrical Services"
-            selected: false
-          - label: "HVAC Services"
-            value: "HVAC Services"
-            selected: false
-          - label: "Carpentry Services"
-            value: "Carpentry Services"
-            selected: false
-          - label: "Landscaping Services"
-            value: "Landscaping Services"
-            selected: false
-          - label: "Painting Services"
-            value: "Painting Services"
-            selected: false
-          - label: "Roofing Services"
-            value: "Roofing Services"
-            selected: false
-          - label: "Masonry Services"
-            value: "Masonry Services"
-            selected: false
-          - label: "Handyman Services"
-            value: "Handyman Services"
-            selected: false
-          - label: "Appliance Repair"
-            value: "Appliance Repair"
-            selected: false
-          - label: "Locksmith Services"
-            value: "Locksmith Services"
-            selected: false
-          - label: "Cleaning Services"
-            value: "Cleaning Services"
-            selected: false
-          - label: "Pest Control Services"
-            value: "Pest Control Services"
-            selected: false
-          - label: "Tree Services"
-            value: "Tree Services"
-            selected: false
-          - label: "Flooring Services"
-            value: "Flooring Services"
-            selected: false
-          - label: "Tiling Services"
-            value: "Tiling Services"
-            selected: false
-          - label: "Concrete Services"
-            value: "Concrete Services"
-            selected: false
-          - label: "Window and Door Installation"
-            value: "Window and Door Installation"
-            selected: false
-          - label: "Garage Door Services"
-            value: "Garage Door Services"
-            selected: false
-          - label: "Fencing Services"
-            value: "Fencing Services"
-            selected: false
-          - label: "Other"
-            value: "Other"
-            selected: false
+      defaultValue: ""
+    # - label: ""
+    #   placeholder: "Business Type *"
+    #   name: "businessType" # This is crucial. Its indicate under which name you want to receive this field data
+    #   required: false
+    #   halfWidth: true
+    #   dropdown:
+    #     type: "search" # select | search - default is select
+    #     search: # if type is search then it will work
+    #       placeholder: "Type to Search"
+    #     items:
+    #       - label: "Plumbing Services"
+    #         value: "Plumbing Services"
+    #         selected: false
+    #       - label: "Electrical Services"
+    #         value: "Electrical Services"
+    #         selected: false
+    #       - label: "HVAC Services"
+    #         value: "HVAC Services"
+    #         selected: false
+    #       - label: "Carpentry Services"
+    #         value: "Carpentry Services"
+    #         selected: false
+    #       - label: "Landscaping Services"
+    #         value: "Landscaping Services"
+    #         selected: false
+    #       - label: "Painting Services"
+    #         value: "Painting Services"
+    #         selected: false
+    #       - label: "Roofing Services"
+    #         value: "Roofing Services"
+    #         selected: false
+    #       - label: "Masonry Services"
+    #         value: "Masonry Services"
+    #         selected: false
+    #       - label: "Handyman Services"
+    #         value: "Handyman Services"
+    #         selected: false
+    #       - label: "Appliance Repair"
+    #         value: "Appliance Repair"
+    #         selected: false
+    #       - label: "Locksmith Services"
+    #         value: "Locksmith Services"
+    #         selected: false
+    #       - label: "Cleaning Services"
+    #         value: "Cleaning Services"
+    #         selected: false
+    #       - label: "Pest Control Services"
+    #         value: "Pest Control Services"
+    #         selected: false
+    #       - label: "Tree Services"
+    #         value: "Tree Services"
+    #         selected: false
+    #       - label: "Flooring Services"
+    #         value: "Flooring Services"
+    #         selected: false
+    #       - label: "Tiling Services"
+    #         value: "Tiling Services"
+    #         selected: false
+    #       - label: "Concrete Services"
+    #         value: "Concrete Services"
+    #         selected: false
+    #       - label: "Window and Door Installation"
+    #         value: "Window and Door Installation"
+    #         selected: false
+    #       - label: "Garage Door Services"
+    #         value: "Garage Door Services"
+    #         selected: false
+    #       - label: "Fencing Services"
+    #         value: "Fencing Services"
+    #         selected: false
+    #       - label: "Other"
+    #         value: "Other"
+    #         selected: false
     # - label: ""
     #   placeholder: "Subject *"
     #   name: "Subject" # This is crucial. Its indicate under which name you want to receive this field data
@@ -178,25 +190,25 @@ form:
     #       - label: "Request Quote"
     #         value: "Request Quote"
     #         selected: false
-    - label: ""
-      placeholder: "Company Size *"
-      name: "companySize" # This is crucial. Its indicate under which name you want to receive this field data
-      required: false
-      halfWidth: true
-      dropdown:
-        type: "" # select | search - default is select
-        search: # if type is search then it will work
-          placeholder: ""
-        items:
-          - label: "1 - 10"
-            value: "1 - 10"
-            selected: false
-          - label: "11 - 30"
-            value: "11 - 30"
-            selected: false
-          - label: "31+"
-            value: "31+"
-            selected: false
+    # - label: ""
+    #   placeholder: "Company Size *"
+    #   name: "companySize" # This is crucial. Its indicate under which name you want to receive this field data
+    #   required: false
+    #   halfWidth: true
+    #   dropdown:
+    #     type: "" # select | search - default is select
+    #     search: # if type is search then it will work
+    #       placeholder: ""
+    #     items:
+    #       - label: "1 - 10"
+    #         value: "1 - 10"
+    #         selected: false
+    #       - label: "11 - 30"
+    #         value: "11 - 30"
+    #         selected: false
+    #       - label: "31+"
+    #         value: "31+"
+    #         selected: false
     # - label: ""
     #   tag: "textarea"
     #   defaultValue: ""

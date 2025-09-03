@@ -16,37 +16,38 @@ interface ValidationResult {
   message?: string;
 }
 
-export function isValidPersonName(
-  name: string,
+export function isValidText(
+  field: string,
+  value: string,
   options: NameValidationOptions = {},
 ): ValidationResult {
   const {
-    minLength = 2,
+    minLength = 1,
     maxLength = 50,
     allowNumbers = false,
     allowSpecialChars = false,
   } = options;
 
-  // Check if name is provided
-  if (!name || typeof name !== "string") {
-    return { isValid: false, message: "Name is required" };
+  // Check if value is provided
+  if (!value || typeof value !== "string") {
+    return { isValid: false, message: `${field} is required` };
   }
 
   // Trim whitespace
-  const trimmedName = name.trim();
+  const trimmedValue = value.trim();
 
   // Check length requirements
-  if (trimmedName.length < minLength) {
+  if (trimmedValue.length < minLength) {
     return {
       isValid: false,
-      message: `Name must be at least ${minLength} characters long`,
+      message: `${field} must be at least ${minLength} characters long`,
     };
   }
 
-  if (trimmedName.length > maxLength) {
+  if (trimmedValue.length > maxLength) {
     return {
       isValid: false,
-      message: `Name must be less than ${maxLength} characters long`,
+      message: `${field} must be less than ${maxLength} characters long`,
     };
   }
 
@@ -68,20 +69,20 @@ export function isValidPersonName(
       : /^[a-zA-ZÀ-ÿ0-9\s]+$/;
   }
 
-  if (!validCharactersRegex.test(trimmedName)) {
+  if (!validCharactersRegex.test(trimmedValue)) {
     return {
       isValid: false,
-      message: "Name contains invalid characters",
+      message: `${field} contains invalid characters`,
     };
   }
 
   // Check for consecutive special characters (if allowed)
   if (allowSpecialChars) {
     const consecutiveSpecialChars = /[\-'.]{2,}/;
-    if (consecutiveSpecialChars.test(trimmedName)) {
+    if (consecutiveSpecialChars.test(trimmedValue)) {
       return {
         isValid: false,
-        message: "Name contains consecutive special characters",
+        message: `${field} contains consecutive special characters`,
       };
     }
   }
@@ -89,20 +90,20 @@ export function isValidPersonName(
   // Check if name starts or ends with special character (if allowed)
   if (allowSpecialChars) {
     const startsOrEndsWithSpecialChar = /^[\-'.]|[\-'.]$/;
-    if (startsOrEndsWithSpecialChar.test(trimmedName)) {
+    if (startsOrEndsWithSpecialChar.test(trimmedValue)) {
       return {
         isValid: false,
-        message: "Name cannot start or end with a special character",
+        message: `${field} cannot start or end with a special character`,
       };
     }
   }
 
   // Check for at least one letter
-  const hasLetters = /[a-zA-ZÀ-ÿ]/.test(trimmedName);
+  const hasLetters = /[a-zA-ZÀ-ÿ]/.test(trimmedValue);
   if (!hasLetters) {
     return {
       isValid: false,
-      message: "Name must contain at least one letter",
+      message: `${field} must contain at least one letter`,
     };
   }
 
