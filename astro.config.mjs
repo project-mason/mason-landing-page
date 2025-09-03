@@ -10,6 +10,7 @@ import {
   reloadOnTomlChange,
 } from "./src/lib/utils/tomlUtils.ts";
 import { enabledLanguages } from "./src/lib/utils/i18nUtils.ts";
+import vercel from '@astrojs/vercel';
 
 const config = parseTomlToJson();
 
@@ -23,6 +24,7 @@ let {
 // https://astro.build/config
 export default defineConfig({
   // output: 'server', // Server-side rendering
+  adapter: vercel(),
   site: config.site.baseUrl ? config.site.baseUrl : "http://examplesite.com",
   trailingSlash: config.site.trailingSlash ? "always" : "never",
   i18n: {
