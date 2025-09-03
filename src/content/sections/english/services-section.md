@@ -5,7 +5,7 @@ title: "What Mason Can Do for Your Business"
 
 options:
   layout: "accordion" # accordion | grid
-  limit: 6 # false / number
+  limit: false # false / number
   column: 3 # 1 / 2 / 3 - applicable only if layout is "grid"
   iconPlacement: "top" # top / right - applicable only if layout is "grid"
 ---

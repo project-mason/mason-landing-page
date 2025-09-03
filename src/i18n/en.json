@@ -9,10 +9,10 @@
   },
   "headerOffcanvas": {
     "description": "Streamline your trade business. Our all-in-one software handles scheduling, dispatch, and invoices so you can focus on the work.",
-    "buttonLabel": "Let’s Talk With Us"
+    "buttonLabel": "Join the Waitlist"
   },
   "navigation": {
-    "buttonLabel": "Get Started"
+    "buttonLabel": "Join the Waitlist"
   },
   "footer": {
     "copyright": "Copyright © {{ year }} by Project Mason"

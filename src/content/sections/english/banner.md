@@ -3,10 +3,10 @@
 
 enable: true # Control the visibility of this section across all pages where it is used
 titleSize: "display-2" # If your title text is larger, use a smaller text size like "display-3", "display-2", or "display-1".
-title: "Streamline <br /> Your Business"
+title: "Stop Missing Calls <br /> Get Paid Faster"
 
 image: "/images/banner/startup.png"
-description: "Our all-in-one software handles scheduling, dispatch, and invoices so you can focus on the work"
+description: "We're building modern, affordable software designed specifically for HVAC businesses to manage jobs, customers, and payments in one place"
 
 button:
   # Refer to the `sharedButton` schema in `src/sections.schema.ts` for all available configuration options (e.g., enable, label, url, hoverEffect, variant, icon, tag, rel, class, target, etc.)
