@@ -11,7 +11,7 @@
       "url": "/#services"
     },
     {
-      "enable": true,
+      "enable": false,
       "name": "Projects",
       "url": "/#projects"
     },
