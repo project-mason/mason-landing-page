@@ -8,6 +8,7 @@ import type { JSONLDProps } from "@/lib/utils/JsonLdGenerator";
 import HelperButtons from "@/components/utilities/HelperButtons.astro";
 import BreakpointIndicator from "@/components/widgets/BreakpointIndicator.astro";
 import FooterThree from "@/components/global/FooterThree.astro";
+import Analytics from '@vercel/analytics/astro'
 
 interface Props extends JSONLDProps {
   className?: string;
@@ -54,6 +55,7 @@ className = fitToScreen
 
 <!doctype html>
 <html lang="en">
+  <Analytics />
   <Head {...props} structuredData={structuredData} />
   <body class:list={[hasBodyDarkBackground && "bg-body-dark"]}>
     <Header
