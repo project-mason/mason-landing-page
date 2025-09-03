@@ -5,6 +5,7 @@ import JsonLD from "../widgets/JsonLD.astro";
 import Favicons from "../seo/Favicons.astro";
 import OpenGraph from "../seo/OpenGraph.astro";
 import Font from "../widgets/Font.astro";
+import MetaPixel from "../MetaPixel.astro";
 
 const config = parseTomlToJson();
 ---
@@ -68,4 +69,6 @@ const config = parseTomlToJson();
 
   <!------------------------ Google Fonts ------------------------>
   <Font />
+
+  <MetaPixel pixelId={import.meta.env.PUBLIC_META_PIXEL_ID}/>
 </head>
