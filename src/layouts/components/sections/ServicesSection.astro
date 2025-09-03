@@ -7,11 +7,15 @@ import uniqueIdGenerator from "@/lib/utils/uniqueIdGenerator";
 import type { z } from "astro/zod";
 import type { Section } from "@/types";
 import type { servicesSectionSchema } from "@/sections.schema";
+import { Image } from "astro:assets";
+import OptimizedImage from "@/components/utilities/OptimizedImage.astro";
+import serviceImage01 from '../../../assets/images/portfolio/1.jpg'
 
 // Type for this section data
 type Service = {
   title: string;
   description: string;
+  image?: string;
 };
 
 type ServicesInterface = Section & z.infer<typeof servicesSectionSchema>;
@@ -50,6 +54,7 @@ if (layout === "accordion") {
     return {
       title: service.data.title,
       description: service.data.description,
+      image: service.data.image,
     };
   }) as Service[];
 }
@@ -124,6 +129,29 @@ if (!enable) {
                   <div class="prose-styles prose-p:first:mt-0 prose-p:last:mb-0 pt-3 lg:pt-0">
                     <div set:html={markdownify(item.description, true)} />
                   </div>
+                  <br />
+                  {/* <Image
+                    src={serviceImage01}
+                    width={800}
+                    height={600}
+                    layout='constrained'
+                    alt="01"
+                    class:list={[
+                      "hs-accordion-content hs-accordion-active:opacity-100 w-full max-w-lg overflow-hidden opacity-0 transition-all duration-300 ease-linear",
+                    ]}
+                  /> */}
+                  {
+                    item.image && (
+                      <div
+                        class="swiper-slide h-auto!">
+                        <OptimizedImage
+                          src={item.image}
+                          alt={item.title || "service"}
+                          class="h-112.5 w-full object-cover md:h-137.5"
+                        />
+                      </div>
+                    )
+                  }
                 </div>
 
                 <div class="hs-accordion-active:rotate-180 pointer-events-none absolute end-0 top-8 flex transition duration-300">
