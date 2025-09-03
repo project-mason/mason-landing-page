@@ -2,6 +2,8 @@
 import { isValidPersonName } from "@/lib/utils/nameValidation";
 import type { APIRoute } from "astro";
 
+export const prerender = false; // service side rendering
+
 // Type definitions for our form data
 interface ContactFormData {
   subject: string;
@@ -50,7 +52,8 @@ export const POST: APIRoute = async ({ request }) => {
 
   // Check if the request has a JSON body
   if (request.headers.get("Content-Type") !== "application/json") {
-    const errMsg = "Invalid content type. Please use application/json";
+    console.error("Invalid content type. Please use application/json");
+    const errMsg = "Failed to process your request. Please try again later.";
     return new Response(
       JSON.stringify({
         error: errMsg,
