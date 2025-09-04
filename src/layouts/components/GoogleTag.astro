@@ -1,0 +1,27 @@
+---
+// Define the type for the component props
+interface Props {
+  gtagId: string;
+}
+
+// Destructure the props
+const { gtagId } = Astro.props;
+
+// Generate the script content with the pixel ID
+const gtagScript = `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '${gtagId}');
+`;
+
+const gtagUrl = `https://www.googletagmanager.com/gtag/js?id=${gtagId}`;
+---
+
+<!-- Google tag -->
+
+<script async src={gtagUrl} />
+<script is:inline set:html={gtagScript} />
+
+<!-- End Google tag -->

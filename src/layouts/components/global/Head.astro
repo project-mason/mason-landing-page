@@ -6,9 +6,11 @@ import Favicons from "../seo/Favicons.astro";
 import OpenGraph from "../seo/OpenGraph.astro";
 import Font from "../widgets/Font.astro";
 import MetaPixel from "../MetaPixel.astro";
+import GoogleTag from "../GoogleTag.astro";
 
 const config = parseTomlToJson();
 const pixelId = import.meta.env.PUBLIC_META_PIXEL_ID;
+const gtagId = import.meta.env.PUBLIC_GOOGLE_TAG_ID;
 ---
 
 <head>
@@ -72,4 +74,5 @@ const pixelId = import.meta.env.PUBLIC_META_PIXEL_ID;
   <Font />
 
   <MetaPixel pixelId={pixelId}/>
+  <GoogleTag gtagId={gtagId} />
 </head>
