@@ -8,6 +8,7 @@ import Font from "../widgets/Font.astro";
 import MetaPixel from "../MetaPixel.astro";
 
 const config = parseTomlToJson();
+const pixelId = import.meta.env.PUBLIC_META_PIXEL_ID;
 ---
 
 <head>
@@ -70,5 +71,5 @@ const config = parseTomlToJson();
   <!------------------------ Google Fonts ------------------------>
   <Font />
 
-  <MetaPixel pixelId={import.meta.env.PUBLIC_META_PIXEL_ID}/>
+  <MetaPixel pixelId={pixelId}/>
 </head>
